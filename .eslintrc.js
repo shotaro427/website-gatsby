@@ -4,7 +4,6 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    'airbnb',
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
@@ -12,40 +11,29 @@ module.exports = {
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
-  settings: {
-    'import/resolver': {
-      node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      },
-    },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   },
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 'latest',
-    sourceType: 'module',
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
-    'no-use-before-define': 'off',
-    quotes: [2, 'single', { avoidEscape: true }],
-    'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
-    'react/prop-types': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-var-requires': 'off',
-    'react/no-danger': 'off',
-    'react/no-unescaped-entities': 'off',
-    'import/no-extraneous-dependencies': 'off',
-    'import/extensions': [
-      'error',
-      'ignorePackages',
+    "@typescript-eslint/no-use-before-define": "off",
+    "max-len": ["error", { "code": 140, "ignoreUrls": true }],
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "react/no-unescaped-entities": [
+      "error",
       {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
-      },
+        "forbid": [{ "char": ">", "alternatives": ["&gt;"] }, { "char": "}", "alternatives": ["&#125;"] }]
+      }
     ],
   },
 };

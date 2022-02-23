@@ -27,17 +27,12 @@ module.exports = {
       },
       __key: 'images',
     },
+    'gatsby-plugin-eslint',
     {
-      resolve: 'gatsby-plugin-eslint',
+      resolve: 'gatsby-plugin-apollo',
       options: {
-        test: /\.js$|\.jsx$|\.ts$|\.tsx$/,
-        exclude: /(node_modules|.cache|public)/,
-        stages: ['develop'],
-        options: {
-          emitWarning: true,
-          failOnError: false,
-        },
-      },
-    },
+        uri: 'http://localhost:8000/___graphql'
+      }
+    }
   ],
 };
